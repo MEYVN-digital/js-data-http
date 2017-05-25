@@ -1512,6 +1512,9 @@
 	};
 
 	var withoutRelations = function withoutRelations(mapper, props, opts) {
+	  if ((typeof FormData != "undefined") && (props instanceof FormData)) {
+	    return props;
+	  }
 	  opts || (opts = {});
 	  opts.with || (opts.with = []);
 	  var relationFields = mapper.relationFields || [];
